@@ -86,3 +86,5 @@ Error:  Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
  - 他のワークフローを追加してみる。一つのリポジトリの中に、複数種類のGitHub Actionsのワークフローを追加することも可能です。単に`/.github/workflows/`ディレクトリにYAMLファイルを増やしていくだけで実現できます。他の種類のワークフローも追加してみましょう（ヒント：CheckstyleというJava用のリンターを実行するためのGitHub Actions定義ファイルを`/.github/checkstyle.yml`という名前で置いてあります。一番簡単なやり方はこのファイルを`/.github/workflows/`ディレクトリに移動するだけです）。
 
  - [GitHub MarketplaceのActionsカテゴリ](https://github.com/marketplace?category=&query=&type=actions&verification=)を眺めてみて、自分のプロジェクトに関係しそうなactionがないかどうかを探してみる。ぜひ、実際のactionを使ったワークフローを作成してみてください。
+
+ - [GitHub Actionsのオンラインチュートリアル](https://learn.microsoft.com/ja-jp/training/paths/automate-workflow-github-actions/)を試してみる。このチュートリアルはMicrosoft Learn上に公開されており、このハンズオンよりもさらに発展的な内容を自らの手で試しながら学ぶことができます。
