@@ -11,4 +11,8 @@ public class App
         System.out.println( "Hello World!" );
         System.out.println( "Hello GitHub Actions" );
     }
+
+    public Integer add(Integer a, Integer b) {
+        return a + b;
+    }
 }
