@@ -73,7 +73,24 @@ Error:    AppTest.testAdd:24
 Error:  Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
 ```
 
-8. テストケースが失敗したことが判明したので、この失敗している箇所を修正し、その変更をGitHubにpushすることで、再度GitHub Actionsのワークフローが開始され、自動ビルド・テストが実行されます。そこで、テストが成功するようになれば、GitHub Actionsのワークフローも成功するはずです。
+8. テストケースが失敗したことが判明したので、この失敗している箇所を修正し（ヒント：`src/test/java/org/yuichielectric/AppTest.java:24行目）、その変更をGitHubにpushすることで、再度GitHub Actionsのワークフローが開始され、自動ビルド・テストが実行されます。そこで、テストが成功するようになれば、GitHub Actionsのワークフローも成功します。
+
+9. このワークフローを少しカスタムしてみましょう。ここまでの手順で作成したワークフローは`mvn package`を実行してビルドが通るかどうかを確認していました。せっかくパッケージまで作成しているので、その成果物であるアーカイブを使えるようにGitHub上に保存しましょう。これを実現するにはいくつかのやり方がありますが、今回は生成したアーカイブファイルをGitHub Actionsのワークフローの実行結果にアップロードする方法を試してみます。まず、そのための良い方法がないかをGitHub Marketplace上で探してみましょう。[GitHub MarketplaceのActionsカテゴリ](https://github.com/marketplace?type=actions)で"upload"と検索してみます。すると、下図のように"Upload a Build Artifact"というものが見つかりました。
+
+![](./images/step9.png)
+
+10. "Upload a Build Artifact"の詳細画面を見てみると、使い方が書いてあります。`steps`に一つステップを追加するだけでこのアクションを使えそうです。今回は、`mvn package`で生成されたアーカイブファイルをアップロードしたいので、以下のようなステップを`maven.yml`の最後のステップとして追加してください（インデントが前のステップの定義と揃うように注意してください）。
+
+```yaml
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Java App jar file
+        path: ./target/*.jar
+```
+
+11. 上記の変更をpushすると、ワークフローがトリガーされます。実行が完了すると、実行結果画面に下図のようにjarファイルが保存されるようになっているはずです。このようにjarファイルを保存することができたので、例えば次のステップとしてこのjarファイルをテスト環境や動作確認環境にデプロイをするワークフローを追加することも可能になります。
+
+![](./images/step11.png)
 
 ## この先のステップ
 
