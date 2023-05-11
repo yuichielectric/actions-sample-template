@@ -105,3 +105,5 @@ Error:  Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
  - [GitHub MarketplaceのActionsカテゴリ](https://github.com/marketplace?category=&query=&type=actions&verification=)を眺めてみて、自分のプロジェクトに関係しそうなactionがないかどうかを探してみる。ぜひ、実際のactionを使ったワークフローを作成してみてください。
 
  - [GitHub Actionsのオンラインチュートリアル](https://learn.microsoft.com/ja-jp/training/paths/automate-workflow-github-actions/)を試してみる。このチュートリアルはMicrosoft Learn上に公開されており、このハンズオンよりもさらに発展的な内容を自らの手で試しながら学ぶことができます。
+
+ - 今回追加したワークフローが失敗した場合にそのプルリクエストのマージを禁止する設定を有効化してみる。この設定は「ブランチ保護ルール」と呼ばれています。有効化の手順は[こちら](https://docs.github.com/ja/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)に記載されています。
